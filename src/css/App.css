@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
   box-sizing: border-box;
+}
+
+html {
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 body {
@@ -43,3 +48,85 @@ h1, h2, h3, h4, h5, h6, p {
   flex-direction: column;
 }
 
+.add-new-todo {
+  padding: 10px 30px;
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid sandybrown;
+  transition: all .3s ease-in;
+}
+
+.filter-buttons {
+  display: flex;
+  border: 1px solid sandybrown;
+  max-width: fit-content;
+  align-self: flex-end;
+}
+
+.filter-buttons button:not(:last-child) {
+  border-right: 1px solid sandybrown;
+}
+
+.filter-buttons button, .clearTodos {
+  transition: all .3s ease-in;
+}
+
+.add-new-todo:hover, .filter-buttons button:hover, .clearTodos:hover {
+  background-color: sandybrown;
+  transform: scale(1.1);
+  color: #fff;
+}
+
+.filter-buttons button.active {
+  background-color: sandybrown;
+  color: #fff;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: -25px;
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  padding: 8px;
+  transition: transform ease-in .2s;
+  z-index: 1;
+}
+
+.close-btn:before {
+  content: '';
+  height: 100%;
+  border-left: 2px solid sandybrown;
+  position: absolute;
+  transform: rotate(-45deg);
+  bottom: 2px;
+}
+
+.close-btn:after {
+  content: '';
+  height: 100%;
+  border-left: 2px solid sandybrown;
+  position: absolute;
+  transform: rotate(45deg);
+  bottom: 2px;
+}
+
+.close-btn:hover {
+  transform: rotateX(180deg);
+}
+
+.form-wrapper {
+  position: relative;
+}
+
+.clearTodos {
+  display: inline-block;
+  border: 1px solid sandybrown;
+}
+
+.headButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import TodoItem from './TodoItem'
 import classes from './module/todo.module.css'
 
-const TodoList = ({todos, todoDelete, editTodo}) => {
+const TodoList = ({todos, todoDelete, editTodo, filterTodo}) => {
 
 	const countTodos = () => {
 		const mod100 = todos.length % 100;
@@ -12,7 +12,7 @@ const TodoList = ({todos, todoDelete, editTodo}) => {
 
 		if (mod10 === 1) return todos.length + ' задача'
 
-		if (mod100 <= 4 && mod100 >= 2) return todos.length + ' задачи'
+		if (mod10 <= 4 && mod10 >= 2) return todos.length + ' задачи'
 
 		return todos.length + ' задач'
 	}
@@ -26,17 +26,16 @@ const TodoList = ({todos, todoDelete, editTodo}) => {
 	return (
 		<div style={{marginTop: 20}}>
 			<h2 className={classes.title}>У вас {countTodos()} </h2>
-			<ul className={classes.list}>
-
-				{todos.map((todo, index) =>
-					<TodoItem onClickDelete={todoDelete}
-										key={todo.id}
-										todo={todo}
-										index={index}
-										onEdit={editTodo}
+			<ul className={classes.list}>{todos.map((todo, index) => {
+				if (todo) {
+					return <TodoItem onClickDelete={todoDelete}
+													 key={todo.id}
+													 todo={todo}
+													 index={index}
+													 onEdit={editTodo}
 					/>
-				)}
-			</ul>
+				}
+			})}</ul>
 		</div>
 	)
 };

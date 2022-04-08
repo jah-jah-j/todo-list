@@ -23,6 +23,8 @@ const CreateTodos = ({pushTodo}) => {
 				isChecked: false,
 			}
 			pushTodo(todo)
+			setTitle('')
+			setDescription('')
 		}
 	}
 
